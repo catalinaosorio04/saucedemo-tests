@@ -6,11 +6,10 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage {
 
     private WebDriver driver;
-
-    private By usernameInput = By.id("user-name");
-    private By passwordInput = By.id("password");
-    private By loginButton = By.id("login-button");
-    private By errorMessage = By.cssSelector("[data-test='error']");
+    private By usuario = By.id("user-name");
+    private By contrasena = By.id("password");
+    private By botonAcceso = By.id("login-button");
+    private By mensajeError = By.cssSelector("[data-test='error']");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -20,17 +19,17 @@ public class LoginPage {
         driver.get("https://www.saucedemo.com/");
     }
 
-    public void login(String username, String password) {
-        driver.findElement(usernameInput).clear();
-        driver.findElement(usernameInput).sendKeys(username);
+    public void login(String use, String contr) {
+        driver.findElement(usuario).clear();
+        driver.findElement(usuario).sendKeys(use);
 
-        driver.findElement(passwordInput).clear();
-        driver.findElement(passwordInput).sendKeys(password);
+        driver.findElement(contrasena).clear();
+        driver.findElement(contrasena).sendKeys(contr);
 
-        driver.findElement(loginButton).click();
+        driver.findElement(botonAcceso).click();
     }
 
-    public String getErrorMessage() {
-        return driver.findElement(errorMessage).getText();
+    public String obtenerMensajeError() {
+        return driver.findElement(mensajeError).getText();
     }
 }
