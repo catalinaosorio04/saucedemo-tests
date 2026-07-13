@@ -6,8 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class ProductsPage {
 
     private WebDriver driver;
-
-    private By productsTitle = By.className("title");
+    private By tituloProductos = By.className("title");
 
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
@@ -18,6 +17,6 @@ public class ProductsPage {
     }
 
     public String getProductsTitle() {
-        return driver.findElement(productsTitle).getText();
+        return driver.findElement(tituloProductos).getText();
     }
 }
